@@ -1,16 +1,17 @@
-from collections import Counter
-
-def min_steps_to_magic_string(S):
-    if len(set(S)) == 1:
-        return 0
+def encode_number(N):
+    str_N = str(N)
+    encoded_str = ""
     
-    freq = Counter(S)
+    for digit in str_N:
+        squared_digit = int(digit) ** 2  # Square the digit
+        encoded_str += str(squared_digit)  
     
-    max_freq = max(freq.values())
+    encoded_value = int(encoded_str)
     
-    return len(S) - max_freq
+    return encoded_value
 
-S = input()
+# Input reading
+N = int(input())
 
-result = min_steps_to_magic_string(S)
+result = encode_number(N)
 print(result)
